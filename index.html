@@ -1,0 +1,2700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>date para madayun na ine</title>
+
+
+    <style>
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            color: #444;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 10%,
+                    #ffd1e3,
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 90% 90%,
+                    #ffd9e8,
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #fff5f9,
+                    #ffe4ef
+                );
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 25px;
+        }
+
+
+        .hidden {
+
+            display: none !important;
+        }
+
+
+        /* =========================================
+           CARD
+        ========================================= */
+
+        .card {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            padding: 50px 45px;
+
+            background:
+                rgba(255, 255, 255, 0.92);
+
+            border-radius: 30px;
+
+            text-align: center;
+
+            box-shadow:
+                0 25px 70px
+                rgba(150, 70, 100, 0.15);
+
+            animation:
+                cardAppear 0.5s ease;
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(15px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           HEARTS
+        ========================================= */
+
+        .big-heart {
+
+            font-size: 75px;
+
+            animation:
+                heartbeat 1.5s infinite;
+        }
+
+
+        .love-animation {
+
+            font-size: 75px;
+
+            animation:
+                floatingHeart 2s
+                ease-in-out infinite;
+        }
+
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+
+        @keyframes floatingHeart {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-12px)
+                    scale(1.1);
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* =========================================
+           HEADINGS
+        ========================================= */
+
+        h1 {
+
+            color: #e75480;
+
+            font-size: 40px;
+
+            margin:
+                15px 0;
+        }
+
+
+        .subtitle {
+
+            color: #999;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+
+        .question {
+
+            color: #e75480;
+
+            font-size: 25px;
+
+            margin: 25px 0;
+        }
+
+
+        .love-text {
+
+            margin: 25px 0;
+
+            color: #777;
+
+            font-style: italic;
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        button {
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 15px;
+
+            padding: 16px;
+
+            margin-top: 10px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #e75480,
+                    #ff91ad
+                );
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+
+                0 10px 25px
+                rgba(
+                    231,
+                    84,
+                    128,
+                    0.3
+                );
+        }
+
+
+        /* =========================================
+           ADMIN LINK
+        ========================================= */
+
+        .admin-link {
+
+            display: block;
+
+            margin-top: 25px;
+
+            color: #e75480;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .admin-link:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           YES / NO
+        ========================================= */
+
+        .choice-area {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 20px;
+
+            min-height: 100px;
+
+            position: relative;
+        }
+
+
+        .yes-button,
+        .no-button {
+
+            width: 150px;
+        }
+
+
+        .yes-button {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #ff4f81,
+                    #ff91ad
+                );
+        }
+
+
+        .no-button {
+
+            background: #999;
+
+            transition:
+                left 0.18s ease,
+                top 0.18s ease;
+        }
+
+
+        .cute-message {
+
+            color: #e75480;
+
+            font-weight: bold;
+
+            margin-top: 20px;
+
+            min-height: 25px;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .step {
+
+            color: #e75480;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .icon {
+
+            font-size: 55px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .input-group {
+
+            text-align: left;
+
+            margin-bottom: 20px;
+        }
+
+
+        label {
+
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            color: #555;
+        }
+
+
+        input,
+        textarea {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border:
+                2px solid #f0d6df;
+
+            border-radius: 15px;
+
+            outline: none;
+
+            font-size: 16px;
+
+            background: white;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        input:focus,
+        textarea:focus {
+
+            border-color: #e75480;
+
+            box-shadow:
+
+                0 0 0 4px
+                rgba(
+                    231,
+                    84,
+                    128,
+                    0.1
+                );
+        }
+
+
+        textarea {
+
+            height: 150px;
+
+            resize: vertical;
+        }
+
+
+        /* =========================================
+           BUTTON GROUP
+        ========================================= */
+
+        .buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+
+        .buttons button {
+
+            margin-top: 0;
+        }
+
+
+        .back-button {
+
+            background: #ddd;
+
+            color: #555;
+        }
+
+
+        .back-button:hover {
+
+            background: #ccc;
+
+            box-shadow: none;
+        }
+
+
+        /* =========================================
+           REVIEW
+        ========================================= */
+
+        .review-box {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #fff0f6,
+                    #fff7fa
+                );
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+            text-align: left;
+
+            margin: 25px 0;
+        }
+
+
+        .review-item {
+
+            padding: 15px 0;
+
+            border-bottom:
+                1px solid #eee;
+        }
+
+
+        .review-item:last-child {
+
+            border-bottom: none;
+        }
+
+
+        .review-label {
+
+            font-size: 13px;
+
+            color: #999;
+
+            margin-bottom: 5px;
+        }
+
+
+        .review-value {
+
+            font-weight: bold;
+
+            color: #555;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================================
+           ADMIN LOGIN
+        ========================================= */
+
+        .admin-error {
+
+            display: none;
+
+            color: #dc3545;
+
+            font-weight: bold;
+
+            margin-top: 15px;
+        }
+
+
+        /* =========================================
+           ADMIN DASHBOARD
+        ========================================= */
+
+        .dashboard-container {
+
+            width: 100%;
+
+            max-width: 1000px;
+
+            padding: 20px;
+        }
+
+
+        .dashboard-header {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.92
+                );
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+
+                0 15px 40px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.08
+                );
+        }
+
+
+        .dashboard-header h1 {
+
+            margin: 0;
+
+            color: #e75480;
+        }
+
+
+        .dashboard-header p {
+
+            color: #888;
+
+            margin-top: 5px;
+        }
+
+
+        .logout-button {
+
+            width: auto;
+
+            margin: 0;
+
+            background: #555;
+        }
+
+
+        .logout-button:hover {
+
+            background: #333;
+        }
+
+
+        /* =========================================
+           SUBMISSIONS
+        ========================================= */
+
+        .submissions {
+
+            display: grid;
+
+            gap: 20px;
+        }
+
+
+        .submission {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.95
+                );
+
+            border-radius: 22px;
+
+            padding: 25px;
+
+            text-align: left;
+
+            box-shadow:
+
+                0 10px 30px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.08
+                );
+        }
+
+
+        .submission h2 {
+
+            color: #e75480;
+
+            margin-bottom: 18px;
+        }
+
+
+        .submission p {
+
+            margin: 12px 0;
+
+            color: #555;
+
+            line-height: 1.5;
+        }
+
+
+        .delete-button {
+
+            width: auto;
+
+            padding:
+                10px 18px;
+
+            background:
+                #dc3545;
+
+            margin-top: 10px;
+        }
+
+
+        .delete-button:hover {
+
+            background:
+                #bb2d3b;
+        }
+
+
+        .empty {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.95
+                );
+
+            border-radius: 25px;
+
+            padding: 50px;
+
+            text-align: center;
+
+            color: #888;
+        }
+
+
+        .back-home-button {
+
+            margin-top: 25px;
+
+            background: #777;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .page {
+
+                padding: 15px;
+            }
+
+
+            .card {
+
+                padding:
+                    35px 20px;
+            }
+
+
+            h1 {
+
+                font-size: 30px;
+            }
+
+
+            .question {
+
+                font-size: 21px;
+            }
+
+
+            .buttons {
+
+                flex-direction: column;
+            }
+
+
+            .choice-area {
+
+                gap: 10px;
+            }
+
+
+            .yes-button,
+            .no-button {
+
+                width: 130px;
+            }
+
+
+            .dashboard-container {
+
+                padding: 5px;
+            }
+
+
+            .dashboard-header {
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+
+            .logout-button {
+
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PAGE 1 — WELCOME
+===================================================== -->
+
+<section
+    id="welcomePage"
+    class="page"
+>
+
+    <div class="card">
+
+        <div class="big-heart">
+            💕
+        </div>
+
+
+        <h1>
+            Kailangan complete pag filled up HAHAH
+        </h1>
+
+
+        <p class="subtitle">
+            Let's create a beautiful memory together.
+        </p>
+
+
+        <button
+            onclick="showPage('beautifulPage')"
+        >
+
+            Start Planning 💗
+
+        </button>
+
+
+        <a
+            href="#"
+            class="admin-link"
+            onclick="
+                showPage('adminLoginPage');
+                return false;
+            "
+        >
+
+            🔐 Admin Login
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 2 — BEAUTIFUL QUESTION
+===================================================== -->
+
+<section
+    id="beautifulPage"
+    class="page hidden"
+>
+
+    <div class="card">
+
+        <div class="love-animation">
+            💕
+        </div>
+
+
+        <h1>
+            kahusay mo man babyyyy
+        </h1>
+
+
+        <p class="subtitle">
+            You know what would make this day even more special?
+        </p>
+
+
+        <h2 class="question">
+            Will you be my special date? 💗
+        </h2>
+
+
+        <div class="choice-area">
+
+
+            <button
+                class="yes-button"
+                onclick="
+                    showPage('namePage')
+                "
+            >
+
+                YES ❤️
+
+            </button>
+
+
+            <button
+                id="noButton"
+                class="no-button"
+            >
+
+                NO 😭
+
+            </button>
+
+
+        </div>
+
+
+        <p
+            id="cuteMessage"
+            class="cute-message"
+        >
+
+            Choose carefully... 👀💕
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 3 — NAME
+===================================================== -->
+
+<section
+    id="namePage"
+    class="page hidden"
+>
+
+    <div class="card">
+
+
+        <div class="step">
+            STEP 1 OF 5
+        </div>
+
+
+        <div class="icon">
+            👤
+        </div>
+
+
+        <h1>
+            What's your name?
+        </h1>
+
+
+        <p class="subtitle">
+            example baby enaro/lira WHAHAHAHHAA
+        </p>
+
+
+        <div class="input-group">
+
+
+            <label>
+                Your Name
+            </label>
+
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+            >
+
+
+        </div>
+
+
+        <div class="buttons">
+
+
+            <button
+                class="back-button"
+                onclick="
+                    showPage('beautifulPage')
+                "
+            >
+
+                ← Back
+
+            </button>
+
+
+            <button
+                onclick="saveName()"
+            >
+
+                Next →
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 4 — DATE & TIME
+===================================================== -->
+
+<section
+    id="datetimePage"
+    class="page hidden"
+>
+
+    <div class="card">
+
+
+        <div class="step">
+            STEP 2 OF 5
+        </div>
+
+
+        <div class="icon">
+            📅
+        </div>
+
+
+        <h1>
+            When is your date?
+        </h1>
+
+
+        <p class="subtitle">
+            kailangan adto kit 
+        </p>
+
+
+        <div class="input-group">
+
+
+            <label>
+                📅 Date
+            </label>
+
+
+            <input
+                type="date"
+                id="date"
+            >
+
+
+        </div>
+
+
+        <div class="input-group">
+
+
+            <label>
+                ⏰ Time
+            </label>
+
+
+            <input
+                type="time"
+                id="time"
+            >
+
+
+        </div>
+
+
+        <div class="buttons">
+
+
+            <button
+                class="back-button"
+                onclick="
+                    showPage('namePage')
+                "
+            >
+
+                ← Back
+
+            </button>
+
+
+            <button
+                onclick="saveDateTime()"
+            >
+
+                Next →
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 5 — LOCATION
+===================================================== -->
+
+<section
+    id="locationPage"
+    class="page hidden"
+>
+
+    <div class="card">
+
+
+        <div class="step">
+            STEP 3 OF 5
+        </div>
+
+
+        <div class="icon">
+            📍
+        </div>
+
+
+        <h1>
+            Where are we going?
+        </h1>
+
+
+        <p class="subtitle">
+            example sa danao babe WHAHAHAHA
+        </p>
+
+
+        <div class="input-group">
+
+
+            <label>
+                📍 Location
+            </label>
+
+
+            <input
+                type="text"
+                id="location"
+                placeholder="Example: SM Seaside"
+            >
+
+
+        </div>
+
+
+        <div class="buttons">
+
+
+            <button
+                class="back-button"
+                onclick="
+                    showPage('datetimePage')
+                "
+            >
+
+                ← Back
+
+            </button>
+
+
+            <button
+                onclick="saveLocation()"
+            >
+
+                Next →
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 6 — MESSAGE
+===================================================== -->
+
+<section
+    id="messagePage"
+    class="page hidden"
+>
+
+    <div class="card">
+
+
+        <div class="step">
+            STEP 4 OF 5
+        </div>
+
+
+        <div class="icon">
+            💌
+        </div>
+
+
+        <h1>
+            Write a message
+        </h1>
+
+
+        <p class="subtitle">
+            Add something special to your date.
+        </p>
+
+
+        <div class="input-group">
+
+
+            <label>
+                💌 Your Message
+            </label>
+
+
+            <textarea
+                id="message"
+                placeholder="
+I can't wait to spend this special day with you...
+"
+            ></textarea>
+
+
+        </div>
+
+
+        <div class="buttons">
+
+
+            <button
+                class="back-button"
+                onclick="
+                    showPage('locationPage')
+                "
+            >
+
+                ← Back
+
+            </button>
+
+
+            <button
+                onclick="saveMessage()"
+            >
+
+                Review →
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 7 — REVIEW
+===================================================== -->
+
+<section
+    id="reviewPage"
+    class="page hidden"
+>
+
+    <div class="card">
+
+
+        <div class="step">
+            STEP 5 OF 5
+        </div>
+
+
+        <div class="icon">
+            💕
+        </div>
+
+
+        <h1>
+            Review Your Date
+        </h1>
+
+
+        <p class="subtitle">
+            Make sure everything is correct.
+        </p>
+
+
+        <div
+            id="review"
+            class="review-box"
+        >
+        </div>
+
+
+        <div class="buttons">
+
+
+            <button
+                class="back-button"
+                onclick="
+                    showPage('messagePage')
+                "
+            >
+
+                ← Back
+
+            </button>
+
+
+            <button
+                onclick="submitDate()"
+            >
+
+                ❤️ Submit Date
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 8 — THANK YOU
+===================================================== -->
+
+<section
+    id="thanksPage"
+    class="page hidden"
+>
+
+    <div class="card">
+
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+
+        <h1>
+            Date Submitted!
+        </h1>
+
+
+        <p class="subtitle">
+            Your special date has been saved.
+        </p>
+
+
+        <p class="love-text">
+            I hope this becomes one of our favorite memories. 💕
+        </p>
+
+
+        <button
+            onclick="restart()"
+        >
+
+            Plan Another Date 💗
+
+        </button>
+
+
+        <a
+            href="#"
+            class="admin-link"
+            onclick="
+                showPage('adminLoginPage');
+                return false;
+            "
+        >
+
+            🔐 Admin Login
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 9 — ADMIN LOGIN
+===================================================== -->
+
+<section
+    id="adminLoginPage"
+    class="page hidden"
+>
+
+    <div class="card">
+
+
+        <div class="icon">
+            🔐
+        </div>
+
+
+        <h1>
+            Admin Login
+        </h1>
+
+
+        <p class="subtitle">
+            Login to see who filled out the date form.
+        </p>
+
+
+        <div class="input-group">
+
+
+            <label>
+                Username
+            </label>
+
+
+            <input
+                type="text"
+                id="adminUsername"
+                placeholder="Enter username"
+            >
+
+
+        </div>
+
+
+        <div class="input-group">
+
+
+            <label>
+                Password
+            </label>
+
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Enter password"
+            >
+
+
+        </div>
+
+
+        <button
+            onclick="adminLogin()"
+        >
+
+            🔐 Login
+
+        </button>
+
+
+        <p
+            id="adminError"
+            class="admin-error"
+        >
+
+            Invalid username or password.
+
+        </p>
+
+
+        <a
+            href="#"
+            class="admin-link"
+            onclick="
+                showPage('welcomePage');
+                return false;
+            "
+        >
+
+            ← Back to Website
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGE 10 — ADMIN DASHBOARD
+===================================================== -->
+
+<section
+    id="adminDashboardPage"
+    class="page hidden"
+>
+
+    <div class="dashboard-container">
+
+
+        <div class="dashboard-header">
+
+
+            <div>
+
+                <h1>
+                    💕 Date Dashboard
+                </h1>
+
+
+                <p>
+                    People who filled out your date form
+                </p>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                onclick="adminLogout()"
+            >
+
+                🚪 Logout
+
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="submissions"
+            class="submissions"
+        >
+        </div>
+
+
+        <button
+            class="back-home-button"
+            onclick="
+                showPage('welcomePage')
+            "
+        >
+
+            🏠 Back to Website
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function showPage(pageId) {
+
+
+    const pages =
+        document.querySelectorAll(
+            ".page"
+        );
+
+
+    pages.forEach(
+        function(page) {
+
+            page.classList.add(
+                "hidden"
+            );
+
+        }
+    );
+
+
+    const selectedPage =
+        document.getElementById(
+            pageId
+        );
+
+
+    if (selectedPage) {
+
+        selectedPage.classList.remove(
+            "hidden"
+        );
+
+    }
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+
+/* =====================================================
+   NO BUTTON
+===================================================== */
+
+const noButton =
+    document.getElementById(
+        "noButton"
+    );
+
+
+const cuteMessage =
+    document.getElementById(
+        "cuteMessage"
+    );
+
+
+const messages = [
+
+    "Are you sure? 🥺💕",
+
+    "Think again, babyy 😭",
+
+    "Nope! You can't catch me! 😆",
+
+    "Try again! 👀",
+
+    "The NO button is shy 👉👈",
+
+    "You really want to say no? 🥺",
+
+    "I'll keep running! 😂💕",
+
+    "Nice try! 😭❤️",
+
+    "Just click YES already! 🥰"
+
+];
+
+
+function moveNoButton() {
+
+
+    const buttonWidth =
+        noButton.offsetWidth;
+
+
+    const buttonHeight =
+        noButton.offsetHeight;
+
+
+    const maxX =
+        window.innerWidth
+        - buttonWidth
+        - 20;
+
+
+    const maxY =
+        window.innerHeight
+        - buttonHeight
+        - 20;
+
+
+    const randomX =
+        Math.floor(
+            Math.random() *
+            maxX
+        );
+
+
+    const randomY =
+        Math.floor(
+            Math.random() *
+            maxY
+        );
+
+
+    noButton.style.position =
+        "fixed";
+
+
+    noButton.style.left =
+        Math.max(
+            10,
+            randomX
+        ) + "px";
+
+
+    noButton.style.top =
+        Math.max(
+            10,
+            randomY
+        ) + "px";
+
+
+    const randomMessage =
+        messages[
+            Math.floor(
+                Math.random() *
+                messages.length
+            )
+        ];
+
+
+    cuteMessage.textContent =
+        randomMessage;
+
+}
+
+
+noButton.addEventListener(
+    "mouseenter",
+    moveNoButton
+);
+
+
+noButton.addEventListener(
+    "touchstart",
+    function(event) {
+
+        event.preventDefault();
+
+        moveNoButton();
+
+    }
+);
+
+
+
+/* =====================================================
+   NAME
+===================================================== */
+
+function saveName() {
+
+
+    const name =
+        document
+        .getElementById(
+            "name"
+        )
+        .value
+        .trim();
+
+
+    if (!name) {
+
+        alert(
+            "Please enter your name 💕"
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "dateName",
+        name
+    );
+
+
+    showPage(
+        "datetimePage"
+    );
+
+}
+
+
+
+/* =====================================================
+   DATE & TIME
+===================================================== */
+
+function saveDateTime() {
+
+
+    const date =
+        document
+        .getElementById(
+            "date"
+        )
+        .value;
+
+
+    const time =
+        document
+        .getElementById(
+            "time"
+        )
+        .value;
+
+
+    if (!date || !time) {
+
+        alert(
+            "Please choose a date and time 📅"
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "dateDate",
+        date
+    );
+
+
+    localStorage.setItem(
+        "dateTime",
+        time
+    );
+
+
+    showPage(
+        "locationPage"
+    );
+
+}
+
+
+
+/* =====================================================
+   LOCATION
+===================================================== */
+
+function saveLocation() {
+
+
+    const location =
+        document
+        .getElementById(
+            "location"
+        )
+        .value
+        .trim();
+
+
+    if (!location) {
+
+        alert(
+            "Please enter a location 📍"
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "dateLocation",
+        location
+    );
+
+
+    showPage(
+        "messagePage"
+    );
+
+}
+
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function saveMessage() {
+
+
+    const message =
+        document
+        .getElementById(
+            "message"
+        )
+        .value
+        .trim();
+
+
+    localStorage.setItem(
+        "dateMessage",
+        message
+    );
+
+
+    loadReview();
+
+
+    showPage(
+        "reviewPage"
+    );
+
+}
+
+
+
+/* =====================================================
+   REVIEW
+===================================================== */
+
+function loadReview() {
+
+
+    const review =
+        document.getElementById(
+            "review"
+        );
+
+
+    const name =
+        localStorage.getItem(
+            "dateName"
+        ) || "";
+
+
+    const date =
+        localStorage.getItem(
+            "dateDate"
+        ) || "";
+
+
+    const time =
+        localStorage.getItem(
+            "dateTime"
+        ) || "";
+
+
+    const location =
+        localStorage.getItem(
+            "dateLocation"
+        ) || "";
+
+
+    const message =
+        localStorage.getItem(
+            "dateMessage"
+        ) ||
+        "No message";
+
+
+    review.innerHTML = `
+
+
+        <div class="review-item">
+
+            <div class="review-label">
+                👤 NAME
+            </div>
+
+            <div class="review-value">
+                ${escapeHTML(name)}
+            </div>
+
+        </div>
+
+
+        <div class="review-item">
+
+            <div class="review-label">
+                📅 DATE
+            </div>
+
+            <div class="review-value">
+                ${formatDate(date)}
+            </div>
+
+        </div>
+
+
+        <div class="review-item">
+
+            <div class="review-label">
+                ⏰ TIME
+            </div>
+
+            <div class="review-value">
+                ${formatTime(time)}
+            </div>
+
+        </div>
+
+
+        <div class="review-item">
+
+            <div class="review-label">
+                📍 LOCATION
+            </div>
+
+            <div class="review-value">
+                ${escapeHTML(location)}
+            </div>
+
+        </div>
+
+
+        <div class="review-item">
+
+            <div class="review-label">
+                💌 MESSAGE
+            </div>
+
+            <div class="review-value">
+                ${escapeHTML(message)}
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =====================================================
+   SUBMIT DATE
+===================================================== */
+
+function submitDate() {
+
+
+    const submission = {
+
+
+        id:
+            Date.now(),
+
+
+        name:
+            localStorage.getItem(
+                "dateName"
+            ),
+
+
+        date:
+            localStorage.getItem(
+                "dateDate"
+            ),
+
+
+        time:
+            localStorage.getItem(
+                "dateTime"
+            ),
+
+
+        location:
+            localStorage.getItem(
+                "dateLocation"
+            ),
+
+
+        message:
+            localStorage.getItem(
+                "dateMessage"
+            ),
+
+
+        submittedAt:
+            new Date()
+            .toLocaleString()
+
+    };
+
+
+    let submissions =
+        JSON.parse(
+            localStorage.getItem(
+                "dateSubmissions"
+            )
+        ) || [];
+
+
+    submissions.push(
+        submission
+    );
+
+
+    localStorage.setItem(
+        "dateSubmissions",
+        JSON.stringify(
+            submissions
+        )
+    );
+
+
+    /* Clear current form */
+
+    localStorage.removeItem(
+        "dateName"
+    );
+
+    localStorage.removeItem(
+        "dateDate"
+    );
+
+    localStorage.removeItem(
+        "dateTime"
+    );
+
+    localStorage.removeItem(
+        "dateLocation"
+    );
+
+    localStorage.removeItem(
+        "dateMessage"
+    );
+
+
+    showPage(
+        "thanksPage"
+    );
+
+}
+
+
+
+/* =====================================================
+   FORMAT DATE
+===================================================== */
+
+function formatDate(date) {
+
+
+    if (!date) {
+
+        return "Not selected";
+
+    }
+
+
+    const d =
+        new Date(
+            date +
+            "T00:00:00"
+        );
+
+
+    return d.toLocaleDateString(
+        "en-US",
+        {
+
+            weekday: "long",
+
+            year: "numeric",
+
+            month: "long",
+
+            day: "numeric"
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   FORMAT TIME
+===================================================== */
+
+function formatTime(time) {
+
+
+    if (!time) {
+
+        return "Not selected";
+
+    }
+
+
+    const parts =
+        time.split(":");
+
+
+    const d =
+        new Date();
+
+
+    d.setHours(
+        Number(parts[0])
+    );
+
+
+    d.setMinutes(
+        Number(parts[1])
+    );
+
+
+    return d.toLocaleTimeString(
+        "en-US",
+        {
+
+            hour: "numeric",
+
+            minute: "2-digit"
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   HTML SECURITY
+===================================================== */
+
+function escapeHTML(value) {
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        value || "";
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =====================================================
+   RESTART
+===================================================== */
+
+function restart() {
+
+
+    showPage(
+        "welcomePage"
+    );
+
+}
+
+
+
+/* =====================================================
+   ADMIN LOGIN
+===================================================== */
+
+const ADMIN_USERNAME =
+    "admin";
+
+
+const ADMIN_PASSWORD =
+    "admin123";
+
+
+function adminLogin() {
+
+
+    const username =
+        document
+        .getElementById(
+            "adminUsername"
+        )
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById(
+            "adminPassword"
+        )
+        .value;
+
+
+    const error =
+        document.getElementById(
+            "adminError"
+        );
+
+
+    if (
+        username ===
+            ADMIN_USERNAME
+        &&
+        password ===
+            ADMIN_PASSWORD
+    ) {
+
+
+        sessionStorage.setItem(
+            "adminLoggedIn",
+            "true"
+        );
+
+
+        error.style.display =
+            "none";
+
+
+        loadSubmissions();
+
+
+        showPage(
+            "adminDashboardPage"
+        );
+
+
+    } else {
+
+
+        error.style.display =
+            "block";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ADMIN LOGOUT
+===================================================== */
+
+function adminLogout() {
+
+
+    sessionStorage.removeItem(
+        "adminLoggedIn"
+    );
+
+
+    showPage(
+        "welcomePage"
+    );
+
+}
+
+
+
+/* =====================================================
+   LOAD SUBMISSIONS
+===================================================== */
+
+function loadSubmissions() {
+
+
+    const container =
+        document.getElementById(
+            "submissions"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    let submissions =
+        JSON.parse(
+            localStorage.getItem(
+                "dateSubmissions"
+            )
+        ) || [];
+
+
+    container.innerHTML =
+        "";
+
+
+    if (
+        submissions.length === 0
+    ) {
+
+
+        container.innerHTML = `
+
+
+            <div class="empty">
+
+
+                <h2>
+                    📭 No submissions yet
+                </h2>
+
+
+                <p>
+                    When someone fills out
+                    the date form, their
+                    information will appear here.
+                </p>
+
+
+            </div>
+
+
+        `;
+
+
+        return;
+
+    }
+
+
+    /* Newest first */
+
+    submissions =
+        submissions.slice().reverse();
+
+
+    submissions.forEach(
+        function(item) {
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "submission";
+
+
+            div.innerHTML = `
+
+
+                <h2>
+                    💕 Date Request
+                </h2>
+
+
+                <p>
+
+                    👤
+
+                    <strong>
+                        Name:
+                    </strong>
+
+                    ${escapeHTML(
+                        item.name
+                    )}
+
+                </p>
+
+
+                <p>
+
+                    📅
+
+                    <strong>
+                        Date:
+                    </strong>
+
+                    ${formatDate(
+                        item.date
+                    )}
+
+                </p>
+
+
+                <p>
+
+                    ⏰
+
+                    <strong>
+                        Time:
+                    </strong>
+
+                    ${formatTime(
+                        item.time
+                    )}
+
+                </p>
+
+
+                <p>
+
+                    📍
+
+                    <strong>
+                        Location:
+                    </strong>
+
+                    ${escapeHTML(
+                        item.location
+                    )}
+
+                </p>
+
+
+                <p>
+
+                    💌
+
+                    <strong>
+                        Message:
+                    </strong>
+
+                    ${escapeHTML(
+                        item.message ||
+                        "No message"
+                    )}
+
+                </p>
+
+
+                <p>
+
+                    🕒
+
+                    <strong>
+                        Submitted:
+                    </strong>
+
+                    ${escapeHTML(
+                        item.submittedAt
+                    )}
+
+                </p>
+
+
+                <button
+                    class="delete-button"
+                    onclick="
+                        deleteSubmission(
+                            ${item.id}
+                        )
+                    "
+                >
+
+                    🗑️ Delete
+
+                </button>
+
+
+            `;
+
+
+            container.appendChild(
+                div
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   DELETE SUBMISSION
+===================================================== */
+
+function deleteSubmission(id) {
+
+
+    const confirmDelete =
+        confirm(
+            "Delete this submission?"
+        );
+
+
+    if (!confirmDelete) {
+
+        return;
+
+    }
+
+
+    let submissions =
+        JSON.parse(
+            localStorage.getItem(
+                "dateSubmissions"
+            )
+        ) || [];
+
+
+    submissions =
+        submissions.filter(
+            function(item) {
+
+                return item.id !== id;
+
+            }
+        );
+
+
+    localStorage.setItem(
+        "dateSubmissions",
+        JSON.stringify(
+            submissions
+        )
+    );
+
+
+    loadSubmissions();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
